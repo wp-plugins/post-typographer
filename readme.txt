@@ -58,4 +58,4 @@ hyphens in the phone numbers exclusively.
 
 == Thanks to ==
 
-[Typograf by Artemy Lebedev] http://www.artlebedev.ru/tools/typograf/
+[Typograf by Artemy Lebedev](http://www.artlebedev.ru/tools/typograf/)
