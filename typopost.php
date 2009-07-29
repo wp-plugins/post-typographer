@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Post Typographer
-Plugin URI: 
+Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
 Description: Adds non-breaking spaces and dashes where needed. Works with English texts only.
 Author: Andriy Moraru
 Version: 1
