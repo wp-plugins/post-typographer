@@ -2,7 +2,7 @@
 Tags: typography, formatting
 Requires at least: 2.5
 Tested up to: 2.8.2
-Stable tag: 1
+Stable tag: 2
 
 Adds non-breaking spaces and dashes where needed. Works with English texts only.
 
@@ -30,6 +30,7 @@ spaces:
 * as
 * i
 * or
+* my
 
 Porblems:
 
@@ -51,6 +52,10 @@ hyphens in the phone numbers exclusively.
 2. Activate the plugin through the 'Plugins' menu in your WordPress Admin section.
 
 == Changelog ==
+
+= 2 =
+* Added: Replaces 2 or more spaces with a single space in the text.
+* Added: Word 'my' included to the list of words for &nbsp; after them.
 
 = 1 =
 * The first working version.

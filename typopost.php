@@ -2,9 +2,9 @@
 /*
 Plugin Name: Post Typographer
 Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
-Description: Adds non-breaking spaces and dashes where needed. Works with English texts only.
+Description: Adds non-breaking spaces and dashes where needed, replaces double (and more) spaces with single. Works with English texts only.
 Author: Andriy Moraru
-Version: 1
+Version: 2
 Author URI: http://www.topforexnews.com
 */
 
@@ -31,6 +31,9 @@ function format_typo_post($post_ID)
 	$posts = get_posts($args);
 	foreach ($posts as $post) $content = $post->post_content;
 
+       	//Replace double (and more) spaces with single spaces
+	$content = preg_replace('@ {2,}@', ' ', $content);
+
 	//Add m-dashes with a preceeding non-breaking space in place of the hyphens where neeeded
 	$content = str_replace(' - ', '&nbsp;&#8212; ', $content);
 
@@ -39,13 +42,13 @@ function format_typo_post($post_ID)
         //Get the array of HTML tags from the text
 	$amount = preg_match_all('@<[\/\!]*?[^<>]*?>@', $content, $html);
 
-	//Concatenate the text making necessary replacements
+	//Concatenate the text, making necessary replacements
 	for ($i = 0; $i <= $amount; $i++)
 	{
          	//Add n-dashes in place of hyphens in the numeric ranges
 		$without_html[$i] = preg_replace('@([0-9])-([0-9])@', "\$1&#8211;\$2", $without_html[$i]);
 		//Add non-breaking spaces
-		$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or) @i", "\$1&nbsp;", $without_html[$i]);
+		$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_html[$i]);
 		if ($i < $amount) $new_content .= $html[0][$i];
 	}
 
