@@ -1,5 +1,5 @@
 === Plugin Name ===
-Tags: typograhy, formatting
+Tags: typography, formatting
 Requires at least: 2.5
 Tested up to: 2.8.2
 Stable tag: 1
@@ -35,8 +35,7 @@ Porblems:
 
 1. The plugin **won't** mess with the HTML tags or other mark-up tags delimited 
 with < and >. It **will** mess with the Javascript code and such constructions 
-as:
-`
+as:`
 	[code]
 	bla bla bla
 	[/code]
