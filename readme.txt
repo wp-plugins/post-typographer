@@ -55,7 +55,7 @@ hyphens in the phone numbers exclusively.
 
 = 2 =
 * Added: Replaces 2 or more spaces with a single space in the text.
-* Added: Word 'my' included to the list of words for &nbsp; after them.
+* Added: Word 'my' included to the list of words for `&nbsp;` after them.
 
 = 1 =
 * The first working version.
