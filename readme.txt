@@ -1,5 +1,5 @@
 === Plugin Name ===
-Tags: typography, formatting
+Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
 Tested up to: 2.8.2
 Stable tag: 2
