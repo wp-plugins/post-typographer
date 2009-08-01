@@ -2,9 +2,9 @@
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
 Tested up to: 2.8.2
-Stable tag: 2
+Stable tag: 3
 
-Adds non-breaking spaces and dashes where needed. Works with English texts only.
+Adds non-breaking spaces, common spaces and dashes where needed. Works with English texts only.
 
 == Description ==
 
@@ -13,7 +13,8 @@ format the post's content to certain typographic rules:
 
 1. All hyphens between two words (surrounded by spaces) will be transformed to
 m-dashes with the non-breaking spaces ahead of them.
-2. All hyphens between digits (without spaces) will be transformed to n-dashes.
+2. All hyphens between digits (without spaces) will be transformed to n-dashes. 
+But it tries to preserve phone numbers.
 3. All spaces following these words will be replaced with the non-breaking 
 spaces:
 * at
@@ -31,6 +32,9 @@ spaces:
 * i
 * or
 * my
+4. Double and more spaces are replaced with the single ones.
+5. All misplaced spaces near dots, commas, semicolons, colons, exclamation 
+marks and question marks are fixed, where possible.
 
 Porblems:
 
@@ -42,9 +46,8 @@ as:`
 	[/code]
 `
 
-2. The n-dash thing will mess up with the phone numbers. They are not the value
-ranges and should use hyphens, but I don't know how to make this plugin skip
-hyphens in the phone numbers exclusively.
+2. The n-dash thing will mess up with the phone numbers that have only one 
+hyphen in them. They will be confused with the value ranges.
 
 == Installation ==
 
@@ -52,6 +55,11 @@ hyphens in the phone numbers exclusively.
 2. Activate the plugin through the 'Plugins' menu in your WordPress Admin section.
 
 == Changelog ==
+
+= 3 =
+* Added: Replaces misplaced spaces near punctuation marks.
+* Fixed: Phone numbers and dates are now avoided (except single-hyphen phone 
+numbers) when the hyphens in the value ranges are transformed into n-dashes.
 
 = 2 =
 * Added: Replaces 2 or more spaces with a single space in the text.
