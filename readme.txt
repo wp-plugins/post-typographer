@@ -56,6 +56,12 @@ hyphen in them. They will be confused with the value ranges.
 
 == Changelog ==
 
+= 4 =
+* Fixed: Nasty double-space bug on post-updating.
+* Fixed: M-dash placement didn't work in version 3.
+* Fixed: N-dashes are now placed correctly even if the value ranges are near the
+beginning or the end of the text.
+
 = 3 =
 * Added: Replaces misplaced spaces near punctuation marks.
 * Fixed: Phone numbers and dates are now avoided (except single-hyphen phone 
