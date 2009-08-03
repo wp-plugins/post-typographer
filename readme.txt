@@ -2,7 +2,7 @@
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
 Tested up to: 2.8.2
-Stable tag: 3
+Stable tag: 4
 
 Adds non-breaking spaces, common spaces and dashes where needed. Works with English texts only.
 
