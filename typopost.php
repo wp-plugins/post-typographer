@@ -34,7 +34,7 @@ function format_typo_post($post_ID)
        	//Replace double (and more) spaces with single spaces
 	$content = preg_replace('@ {2,}@', ' ', $content);
 
-	//Add m-dashes with a preceeding non-breaking space in place of the hyphens where neeeded
+	//Add m-dashes with a preceeding non-breaking space, in place of the hyphens, where neeeded
 	$content = str_replace(' - ', '&nbsp;&#8212; ', $content);
 
 	//Get the array of strings made of text without HTML tags
@@ -51,6 +51,8 @@ function format_typo_post($post_ID)
 		$without_html[$i] = preg_replace('@(,|!|\?)([a-z]+)@i', "\$1 \$2", $without_html[$i]);
          	//Add n-dashes in place of hyphens in the numeric ranges, skipping the supposed phone numbers
 		$without_html[$i] = preg_replace('@((^|[^\-^0-9])[0-9]+)-([0-9]+([^0-9^\-]|$))@', "\$1&#8211;\$3", $without_html[$i]);
+		//Wrap composed words with hyphens with <nobr> tag 
+		$without_html[$i] = preg_replace('@(([a-zA-Z]+)(-([a-zA-Z]+))+)@', "<nobr>\$1</nobr>", $without_html[$i]);
 		//Add non-breaking spaces
 		$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_html[$i]);
 		if ($i < $amount) $new_content .= $html[0][$i];
