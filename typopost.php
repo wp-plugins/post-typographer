@@ -4,7 +4,7 @@ Plugin Name: Post Typographer
 Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
 Description: Formats the text according to typography rules. Works with English texts only.
 Author: Andriy Moraru
-Version: 4
+Version: 5
 Author URI: http://www.topforexnews.com
 */
 
