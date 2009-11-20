@@ -4,7 +4,7 @@ Plugin Name: Post Typographer
 Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
 Description: Formats the text according to typography rules. Works with English texts only.
 Author: Andriy Moraru
-Version: 5
+Version: 6
 Author URI: http://www.topforexnews.com
 */
 
@@ -45,18 +45,30 @@ function format_typo_post($post_ID)
 	//Concatenate the text, making necessary replacements
 	for ($i = 0; $i <= $amount; $i++)
 	{
-		//Remove space before the punctuation marks that are placed directly after the words
-		$without_html[$i] = preg_replace('@ (\.|,|;|:|!|\?)@', "\$1", $without_html[$i]);
-		//Add space after the punctuation marks where needed
-		$without_html[$i] = preg_replace('@(,|!|\?)([a-z]+)@i', "\$1 \$2", $without_html[$i]);
-         	//Add n-dashes in place of hyphens in the numeric ranges, skipping the supposed phone numbers
-		$without_html[$i] = preg_replace('@((^|[^\-^0-9])[0-9]+)-([0-9]+([^0-9^\-]|$))@', "\$1&#8211;\$3", $without_html[$i]);
-		//Wrap composed words with hyphens with <nobr> tag 
-		$without_html[$i] = preg_replace('@(([a-zA-Z]+)(-([a-zA-Z]+))+)@', "<nobr>\$1</nobr>", $without_html[$i]);
-		//Add non-breaking spaces
-		$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_html[$i]);
+		//Get the array of strings made of text without text wrapped with [] tags
+		$without_square = preg_split('@\[(video|code)\].*\[/(video|code)\]@', $without_html[$i]);
+	        //Get the array of [] tags from the text
+		$n_square = preg_match_all('@\[(video|code)\].*\[/(video|code)\]@', $without_html[$i], $square);
+		for ($j = 0; $j <= $n_square; $j++)
+		{
+			//Remove space before the punctuation marks that are placed directly after the words
+			$without_square[$j] = preg_replace('@ (\.|,|;|:|!|\?)@', "\$1", $without_square[$j]);
+			//Add space after the punctuation marks where needed
+			$without_square[$j] = preg_replace('@(,|!|\?)([a-z]+)@i', "\$1 \$2", $without_square[$j]);
+			//Add n-dashes in place of hyphens in the numeric ranges, skipping the supposed phone numbers
+			$without_square[$j] = preg_replace('@((^|[^\-^0-9])[0-9]+)-([0-9]+([^0-9^\-]|$))@', "\$1&#8211;\$3", $without_square[$j]);
+			//Wrap composed words with hyphens with <nobr> tag 
+			$without_square[$j] = preg_replace('@(([a-zA-Z]+)(-([a-zA-Z]+))+)@', "<nobr>\$1</nobr>", $without_square[$j]);
+			//Add non-breaking spaces
+			$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_square[$j]);
+			if ($j < $n_square) $new_content .= $square[0][$j];
+		}
 		if ($i < $amount) $new_content .= $html[0][$i];
 	}
+
+	//A rather ugly fix for recursive <nobr> wrapping
+	$new_content = preg_replace('@<nobr>(<nobr>)+@', "<nobr>", $new_content);
+	$new_content = preg_replace('@</nobr>(</nobr>)+@', "</nobr>", $new_content);
 
 	//Prepare parameters for updating the post
 	$my_post = array();

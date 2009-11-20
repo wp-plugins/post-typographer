@@ -1,8 +1,8 @@
 === Plugin Name ===
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
-Tested up to: 2.8.5
-Stable tag: 5
+Tested up to: 2.8.6
+Stable tag: 6
 
 Adds non-breaking spaces, <nobr> tags, common spaces, tags and dashes where needed. Works with English texts only.
 
@@ -35,7 +35,7 @@ spaces:
 4. Double and more spaces are replaced with the single ones.
 5. All misplaced spaces near dots, commas, semicolons, colons, exclamation 
 marks and question marks are fixed, where possible.
-6. Composed words with hyphens in them (e.g. easy-to-use) will be wrapped in
+6. Composed words with hyphens in them (e.g. "easy-to-use") will be wrapped in
 <nobr></nobr> tags.
 
 Porblems:
@@ -47,6 +47,7 @@ as:`
 	bla bla bla
 	[/code]
 `
+Though, since version 6 the mess is minimized for [code] and [video] tags.
 
 2. The n-dash thing will mess up with the phone numbers that have only one 
 hyphen in them. They will be confused with the value ranges.
@@ -57,6 +58,11 @@ hyphen in them. They will be confused with the value ranges.
 2. Activate the plugin through the 'Plugins' menu in your WordPress Admin section.
 
 == Changelog ==
+
+= 5 =
+* Fixed: Double (and more) warpping with the <nobr> tags.
+* Fixed: <nobr> wrapping and some other formatting in the [code] and [video] 
+embedded text.
 
 = 5 =
 * Added: Wrapping the composed words with hyphens with <nobr> tags.
