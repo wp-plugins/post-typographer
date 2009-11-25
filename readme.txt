@@ -2,7 +2,7 @@
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
 Tested up to: 2.8.6
-Stable tag: 6
+Stable tag: 7
 
 Adds non-breaking spaces, <nobr> tags, common spaces, tags and dashes where needed. Works with English texts only.
 
@@ -33,7 +33,7 @@ spaces:
 * or
 * my
 4. Double and more spaces are replaced with the single ones.
-5. All misplaced spaces near dots, commas, semicolons, colons, exclamation 
+5. All misplaced spaces near dots, colons, exclamation 
 marks and question marks are fixed, where possible.
 6. Composed words with hyphens in them (e.g. "easy-to-use") will be wrapped in
 <nobr></nobr> tags.
@@ -59,7 +59,11 @@ hyphen in them. They will be confused with the value ranges.
 
 == Changelog ==
 
-= 5 =
+= 7 =
+* Fixed: No longer removes spaces before colons and semicolons - not to mess 
+with the smiles.
+
+= 6 =
 * Fixed: Double (and more) warpping with the <nobr> tags.
 * Fixed: <nobr> wrapping and some other formatting in the [code] and [video] 
 embedded text.
