@@ -4,7 +4,7 @@ Plugin Name: Post Typographer
 Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
 Description: Formats the text according to typography rules. Works with English texts only.
 Author: Andriy Moraru
-Version: 7
+Version: 8
 Author URI: http://www.topforexnews.com
 */
 
@@ -52,7 +52,7 @@ function format_typo_post($post_ID)
 		for ($j = 0; $j <= $n_square; $j++)
 		{
 			//Remove space before the punctuation marks that are placed directly after the words
-			$without_square[$j] = preg_replace('@ (\.|,|!|\?)@', "\$1", $without_square[$j]);
+			$without_square[$j] = preg_replace('@ (\.|,|(: )|(; )|!|\?)@', "\$1", $without_square[$j]);
 			//Add space after the punctuation marks where needed
 			$without_square[$j] = preg_replace('@(,|!|\?)([a-z]+)@i', "\$1 \$2", $without_square[$j]);
 			//Add n-dashes in place of hyphens in the numeric ranges, skipping the supposed phone numbers
@@ -60,7 +60,7 @@ function format_typo_post($post_ID)
 			//Wrap composed words with hyphens with <nobr> tag 
 			$without_square[$j] = preg_replace('@(([a-zA-Z]+)(-([a-zA-Z]+))+)@', "<nobr>\$1</nobr>", $without_square[$j]);
 			//Add non-breaking spaces
-			$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_square[$j]);
+			$new_content .= preg_replace("@(?<!')\b(at|or|and|the|a|by|an|in|on|of|for|to|as|i|or|my) @i", "\$1&nbsp;", $without_square[$j]);
 			if ($j < $n_square) $new_content .= $square[0][$j];
 		}
 		if ($i < $amount) $new_content .= $html[0][$i];
