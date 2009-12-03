@@ -4,7 +4,7 @@ Plugin Name: Post Typographer
 Plugin URI: http://wordpress.org/extend/plugins/post-typographer/
 Description: Formats the text according to typography rules. Works with English texts only.
 Author: Andriy Moraru
-Version: 8
+Version: 9
 Author URI: http://www.topforexnews.com
 */
 
@@ -37,6 +37,9 @@ function format_typo_post($post_ID)
 	//Add m-dashes with a preceeding non-breaking space, in place of the hyphens, where neeeded
 	$content = str_replace(' - ', '&nbsp;&#8212; ', $content);
 
+	//Prevent Wordpress from removing the backslashes
+	$content = str_replace('\\', '\\\\', $content);
+
 	//Get the array of strings made of text without HTML tags
 	$without_html = preg_split('@<[\/\!]*?[^<>]*?>@', $content);
         //Get the array of HTML tags from the text
@@ -52,7 +55,7 @@ function format_typo_post($post_ID)
 		for ($j = 0; $j <= $n_square; $j++)
 		{
 			//Remove space before the punctuation marks that are placed directly after the words
-			$without_square[$j] = preg_replace('@ (\.|,|(: )|(; )|!|\?)@', "\$1", $without_square[$j]);
+			$without_square[$j] = preg_replace('@ ((\. )|,|(: )|(; )|!|\?)@', "\$1", $without_square[$j]);
 			//Add space after the punctuation marks where needed
 			$without_square[$j] = preg_replace('@(,|!|\?)([a-z]+)@i', "\$1 \$2", $without_square[$j]);
 			//Add n-dashes in place of hyphens in the numeric ranges, skipping the supposed phone numbers

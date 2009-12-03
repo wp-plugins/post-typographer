@@ -2,7 +2,7 @@
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
 Tested up to: 2.8.6
-Stable tag: 8
+Stable tag: 9
 
 Adds non-breaking spaces, <nobr> tags, common spaces, tags and dashes where needed. Works with English texts only.
 
@@ -58,6 +58,10 @@ hyphen in them. They will be confused with the value ranges.
 2. Activate the plugin through the 'Plugins' menu in your WordPress Admin section.
 
 == Changelog ==
+
+= 9 =
+* Fixed: No longer removes backslashes from posts.
+* Fixed: Tries not to mess with the files' extensions (like .txt).
 
 = 8 =
 * Added: Tries to remove unneded spaces before colons and semicolons without
