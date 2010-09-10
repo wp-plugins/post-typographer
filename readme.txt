@@ -1,8 +1,8 @@
 === Plugin Name ===
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
-Tested up to: 3.0
-Stable tag: 9
+Tested up to: 3.0.1
+Stable tag: 10
 
 Adds non-breaking spaces, <nobr> tags, common spaces, tags and dashes where needed. Works with English texts only.
 
@@ -37,6 +37,7 @@ spaces:
 marks and question marks are fixed, where possible.
 6. Composed words with hyphens in them (e.g. "easy-to-use") will be wrapped in
 <nobr></nobr> tags.
+7. <pre></pre> tag and its contents are preserved.
 
 Porblems:
 
@@ -58,6 +59,9 @@ hyphen in them. They will be confused with the value ranges.
 2. Activate the plugin through the 'Plugins' menu in your WordPress Admin section.
 
 == Changelog ==
+
+= 10 =
+* Fixed: Contents of <pre></pre> tag aren't messed up with typographing.
 
 = 9 =
 * Fixed: No longer removes backslashes from posts.
