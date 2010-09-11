@@ -17,27 +17,46 @@ m-dashes with the non-breaking spaces ahead of them.
 But it tries to preserve phone numbers.
 3. All spaces following these words will be replaced with the non-breaking 
 spaces:
+
 * at
+
 * or 
+
 * and
+
 * the
+
 * a
+
 * an
+
 * in
+
 * on
+
 * of
+
 * for
+
 * to
+
 * as
+
 * i
+
 * or
+
 * my
+
 4. Double and more spaces are replaced with the single ones.
+
 5. All misplaced spaces near dots, colons, semicolons, exclamation 
 marks and question marks are fixed, where possible.
+
 6. Composed words with hyphens in them (e.g. "easy-to-use") will be wrapped in
-<nobr></nobr> tags.
-7. <pre></pre> tag and its contents are preserved.
+`<nobr></nobr>` tags.
+
+7. `<pre></pre>` tag and its contents are preserved.
 
 Porblems:
 
