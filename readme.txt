@@ -1,7 +1,7 @@
 === Plugin Name ===
 Tags: typography, formatting, post, posts, plugin
 Requires at least: 2.5
-Tested up to: 3.0.1
+Tested up to: 3.8
 Stable tag: 10
 
 Adds non-breaking spaces, <nobr> tags, common spaces, tags and dashes where needed. Works with English texts only.
